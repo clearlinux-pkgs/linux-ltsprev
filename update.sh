@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-PKG=linux-lts2021
+PKG=linux-ltsprev
 LTS_VER=5.15
 SPEC=./$PKG.spec
 
