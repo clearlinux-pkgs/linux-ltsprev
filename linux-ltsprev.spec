@@ -5,13 +5,13 @@
 #
 
 Name:           linux-ltsprev
-Version:        5.15.131
-Release:        76
+Version:        5.15.132
+Release:        77
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.131.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.132.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -102,7 +102,7 @@ Requires:       linux-ltsprev-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.15.131
+%setup -q -n linux-5.15.132
 
 #cve.patch.start cve patches
 #cve.patch.end
