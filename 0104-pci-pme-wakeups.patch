@@ -10,7 +10,7 @@ boards (sadly, too many of them) in laptops.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index 2bfff2328..77a284849 100644
+index d25122fbe98a..dbfb6aaa4a07 100644
 --- a/drivers/pci/pci.c
 +++ b/drivers/pci/pci.c
 @@ -60,7 +60,7 @@ struct pci_pme_device {
@@ -22,3 +22,6 @@ index 2bfff2328..77a284849 100644
  
  static void pci_dev_d3_sleep(struct pci_dev *dev)
  {
+-- 
+https://clearlinux.org
+

@@ -10,7 +10,7 @@ saves 200ms+ of boot time.
  1 file changed, 3 insertions(+)
 
 diff --git a/arch/x86/kernel/tsc.c b/arch/x86/kernel/tsc.c
-index a69819637..5f3ee7c31 100644
+index a698196377be..5f3ee7c31c8a 100644
 --- a/arch/x86/kernel/tsc.c
 +++ b/arch/x86/kernel/tsc.c
 @@ -1569,6 +1569,9 @@ unsigned long calibrate_delay_is_known(void)
@@ -23,3 +23,6 @@ index a69819637..5f3ee7c31 100644
  	sibling = cpumask_any_but(mask, cpu);
  	if (sibling < nr_cpu_ids)
  		return cpu_data(sibling).loops_per_jiffy;
+-- 
+https://clearlinux.org
+

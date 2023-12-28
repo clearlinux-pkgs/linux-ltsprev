@@ -1,17 +1,17 @@
 #
-# This is a special configuration of the Linux kernel, based on linux package
-# for long-term support
-# 
+# note to self: Linus releases need to be named 5.x.0 not 5.x or various
+# things break
+#
 #
 
 Name:           linux-ltsprev
-Version:        5.15.145
-Release:        90
+Version:        6.1.69
+Release:        1329
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.145.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.69.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -45,23 +45,56 @@ Patch0106: 0106-intel_idle-tweak-cpuidle-cstates.patch
 Patch0107: 0107-bootstats-add-printk-s-to-measure-boot-time-in-more-.patch
 Patch0108: 0108-smpboot-reuse-timer-calibration.patch
 Patch0109: 0109-initialize-ata-before-graphics.patch
-Patch0110: 0110-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
-Patch0111: 0111-init-wait-for-partition-and-retry-scan.patch
-Patch0112: 0112-print-fsync-count-for-bootchart.patch
-Patch0113: 0113-add-boot-option-to-allow-unsigned-modules.patch
-Patch0114: 0114-enable-stateless-firmware-loading.patch
-Patch0115: 0115-migrate-some-systemd-defaults-to-the-kernel-defaults.patch
-Patch0116: 0116-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0117: 0117-add-scheduler-turbo3-patch.patch
-Patch0118: 0118-use-lfence-instead-of-rep-and-nop.patch
-Patch0119: 0119-do-accept-in-LIFO-order-for-cache-efficiency.patch
-Patch0120: 0120-locking-rwsem-spin-faster.patch
-Patch0121: 0121-ata-libahci-ignore-staggered-spin-up.patch
-Patch0122: 0122-print-CPU-that-faults.patch
-Patch0123: 0123-x86-microcode-Add-an-option-to-reload-microcode-even.patch
-Patch0124: 0124-nvme-workaround.patch
-Patch0125: 0125-don-t-report-an-error-if-PowerClamp-run-on-other-CPU.patch
+Patch0111: 0111-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
+Patch0112: 0112-init-wait-for-partition-and-retry-scan.patch
+#Patch0113: 0113-print-fsync-count-for-bootchart.patch
+Patch0114: 0114-add-boot-option-to-allow-unsigned-modules.patch
+Patch0115: 0115-enable-stateless-firmware-loading.patch
+Patch0116: 0116-migrate-some-systemd-defaults-to-the-kernel-defaults.patch
+Patch0117: 0117-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
+Patch0118: 0118-add-scheduler-turbo3-patch.patch
+Patch0119: 0119-use-lfence-instead-of-rep-and-nop.patch
+Patch0120: 0120-do-accept-in-LIFO-order-for-cache-efficiency.patch
+Patch0121: 0121-locking-rwsem-spin-faster.patch
+Patch0122: 0122-ata-libahci-ignore-staggered-spin-up.patch
+Patch0123: 0123-print-CPU-that-faults.patch
+Patch0124: 0124-x86-microcode-Add-an-option-to-reload-microcode-even.patch
+Patch0125: 0125-nvme-workaround.patch
+Patch0126: 0126-don-t-report-an-error-if-PowerClamp-run-on-other-CPU.patch
+Patch0127: 0127-lib-raid6-add-patch.patch
+Patch0128: 0128-itmt_epb-use-epb-to-scale-itmt.patch
+Patch0130: 0130-itmt2-ADL-fixes.patch
+Patch0131: 0131-add-a-per-cpu-minimum-high-watermark-an-tune-batch-s.patch
+Patch0132: 0132-prezero-20220308.patch
+Patch0133: 0133-novector.patch
+Patch0134: 0134-md-raid6-algorithms-scale-test-duration-for-speedier.patch
+Patch0135: 0135-initcall-only-print-non-zero-initcall-debug-to-speed.patch
+Patch0136: scale.patch
+Patch0137: libsgrowdown.patch
+Patch0138: kdf-boottime.patch
+Patch0139: adlrdt.patch
+Patch0140: kvm-printk.patch
+Patch0141: epp-retune.patch
+Patch0142: tcptuning.patch
+Patch0143: 0001-powerbump-functionality.patch
+Patch0144: 0002-add-networking-support-for-powerbump.patch
+Patch0145: 0003-futex-bump.patch
+Patch0146: 0001-add-umonitor-umwait-C0.x-C-states.patch
+Patch0147: 0001-mm-memcontrol-add-some-branch-hints-based-on-gcov-an.patch
+Patch0148: 0002-sched-core-add-some-branch-hints-based-on-gcov-analy.patch
+Patch0149: netscale.patch
 #Serie.end
+
+#backports
+#Patch0200: mm-lru_cache_disable-use-synchronize_rcu_expedited.patch
+
+Patch0401: sched-hybrid1.patch
+Patch0402: sched-hybrid2.patch
+Patch0403: sched-hybrid3.patch
+Patch0404: sched-hybrid4.patch
+
+Patch0500: 0001-sched-migrate.patch
+Patch0501: 0002-sched-migrate.patch
 
 %description
 The Linux kernel.
@@ -76,11 +109,11 @@ Requires:       linux-ltsprev-license = %{version}-%{release}
 Linux kernel extra files
 
 %package license
-Summary: license components for the linux-ltsprev package.
+Summary: license components for the linux package.
 Group: Default
 
 %description license
-license components for the linux-ltsprev package.
+license components for the linux package.
 
 %package cpio
 License:        GPL-2.0
@@ -102,7 +135,7 @@ Requires:       linux-ltsprev-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.15.145
+%setup -q -n linux-6.1.69
 
 #cve.patch.start cve patches
 #cve.patch.end
@@ -120,15 +153,14 @@ Linux kernel build files
 %patch0107 -p1
 %patch0108 -p1
 %patch0109 -p1
-%patch0110 -p1
 %patch0111 -p1
 %patch0112 -p1
-%patch0113 -p1
+#%patch0113 -p1
 %patch0114 -p1
 %patch0115 -p1
 %patch0116 -p1
 %patch0117 -p1
-%patch0118 -p1
+#%patch0118 -p1
 %patch0119 -p1
 %patch0120 -p1
 %patch0121 -p1
@@ -136,7 +168,40 @@ Linux kernel build files
 %patch0123 -p1
 %patch0124 -p1
 %patch0125 -p1
+%patch0126 -p1
+%patch0127 -p1
+%patch0128 -p1
+%patch0130 -p1
+%patch0131 -p1
+#patch0132 -p1
+%patch0133 -p1
+%patch0134 -p1
+%patch0135 -p1
+%patch0136 -p1
+%patch0137 -p1
+%patch0138 -p1
+%patch0139 -p1
+%patch0140 -p1
+%patch0141 -p1
+%patch0142 -p1
+%patch0143 -p1
+%patch0144 -p1
+%patch0145 -p1
+%patch0146 -p1
+%patch0147 -p1
+%patch0148 -p1
+%patch0149 -p1
 #Serie.patch.end
+
+# backports
+
+%patch0401 -p1
+%patch0403 -p1
+%patch0404 -p1
+
+%patch0500 -p1
+%patch0501 -p1
+
 
 cp %{SOURCE1} .
 

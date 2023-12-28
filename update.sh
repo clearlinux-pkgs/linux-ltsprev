@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-PKG=linux-ltsprev
-LTS_VER=5.15
+PKG=linux-ltscurrent
+STABLE_VER=6.1
 SPEC=./$PKG.spec
 
 CUR_VER=$(rpmspec --srpm -q --qf="%{VERSION}" $SPEC)
@@ -11,7 +11,7 @@ CUR_VER=${CUR_VER//./\\.}
 
 rm -f releases.json
 curl -sSf -O -L https://www.kernel.org/releases.json
-NEW_VER=$(python3 ./filter-lts.py $LTS_VER releases.json)
+NEW_VER=$(python3 ./filter-stable.py $STABLE_VER releases.json)
 
 sed -i -e "s/$CUR_VER/$NEW_VER/g" $SPEC
 
