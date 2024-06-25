@@ -6,7 +6,7 @@
 
 Name:           linux-ltsprev
 Version:        6.1.95
-Release:        1339
+Release:        1340
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
