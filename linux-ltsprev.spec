@@ -5,13 +5,13 @@
 #
 
 Name:           linux-ltsprev
-Version:        6.1.96
-Release:        1341
+Version:        6.1.97
+Release:        1342
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.96.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.97.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -135,7 +135,7 @@ Requires:       linux-ltsprev-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-6.1.96
+%setup -q -n linux-6.1.97
 
 #cve.patch.start cve patches
 #cve.patch.end
