@@ -5,13 +5,13 @@
 #
 
 Name:           linux-ltsprev
-Version:        6.6.77
-Release:        1474
+Version:        6.6.78
+Release:        1475
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.77.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.78.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -131,7 +131,7 @@ Requires:       linux-ltsprev-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-6.6.77
+%setup -q -n linux-6.6.78
 
 #cve.patch.start cve patches
 #cve.patch.end
